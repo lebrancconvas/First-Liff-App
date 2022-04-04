@@ -54,6 +54,10 @@ async function main() {
       btnShare.style.display = "block"
       btnSend.style.display = "block";
     }
+
+    if (liff.isInClient() && liff.getOS() === "android") {
+      btnScanCode.style.display = "block"
+    }
   
 
 }
@@ -117,4 +121,13 @@ async function shareMsg() {
 
 btnShare.onclick = () => {
   shareMsg();
+}
+
+async function scanCode() {
+  const result = await liff.scanCode()
+  code.innerHTML = "<b>Code: </b>" + result.value
+}
+
+btnScanCode.onclick = () => {
+  scanCode()
 }
