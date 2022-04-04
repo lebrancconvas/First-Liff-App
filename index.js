@@ -100,6 +100,7 @@ async function sendMsg() {
     ])
     alert("Message sent")
   }
+  liff.closeWindow();
 }
 
 btnSend.onclick = () => {
@@ -118,6 +119,7 @@ async function shareMsg() {
       text: "Hello Hello."
     }
   ])
+  liff.closeWindow();
 }
 
 btnShare.onclick = () => {
