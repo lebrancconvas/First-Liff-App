@@ -45,12 +45,14 @@ async function main() {
         btnLogIn.style.display = "none"
         btnLogOut.style.display = "block"
         getUserProfile();
+        getFriendship(); 
       } else {
         btnLogIn.style.display = "block"
         btnLogOut.style.display = "none"
       }
     } else {
       getUserProfile();
+      getFriendship();
       btnShare.style.display = "block"
       btnSend.style.display = "block";
     }
@@ -140,4 +142,13 @@ btnOpenWindow.onclick = () => {
     url: window.location.href,
     external: true
   })
+}
+
+async function getFriendship() {
+  let msg = "Hooray! You and our chatbot are friend."
+  const friend = await liff.getFriendship()
+  if (!friend.friendFlag) {
+     msg = "<a href=\"https://line.me/R/ti/p/@BOT-ID\">Follow our chatbot here!</a>"
+  }
+  friendShip.innerHTML = msg;
 }
