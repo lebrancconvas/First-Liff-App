@@ -59,6 +59,7 @@ async function main() {
       btnScanCode.style.display = "block"
     }
   
+    btnOpenWindow.style.display = "block"
 
 }
 main()
@@ -130,4 +131,11 @@ async function scanCode() {
 
 btnScanCode.onclick = () => {
   scanCode()
+}
+
+btnOpenWindow.onclick = () => {
+  liff.openWindow({
+    url: window.location.href,
+    external: true
+  })
 }
